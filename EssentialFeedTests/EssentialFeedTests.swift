@@ -15,29 +15,34 @@ class RemoteFeedLoader {
 }           // Precisa ter alguma URL em algum momento
 
 class HTTPClient {
-    static let shared = HTTPClient()
-    var requestURL: URL?
+    static var shared = HTTPClient()
+    func getURL(url: URL) {}
+}
+
+class HTTPClientSpy: HTTPClient {
+    var requestURL: URL?                    // RequestURL é apenas para fim de testes (produção)
     
-    private init(){}
-    
-    func getURL(url: URL) {
-        self.requestURL = url
+    override func getURL(url: URL) {
+        requestURL = url
     }
-    
 }
 
 final class RemoteFeedTests: XCTestCase {
 
     func tests_init_withoutURLRequest() {
         //let sut = RemoteFeedLoader() --------> Mas não faz sentido eu possui-lo porque eu não o uso
-        let client = HTTPClient.shared
+        let client = HTTPClientSpy()
+        
+        HTTPClient.shared = client
         
         XCTAssertNil(client.requestURL)
     }
     
     func tests_init_withRequestURL() {
         let sut = RemoteFeedLoader()
-        let client = HTTPClient.shared
+        let client = HTTPClientSpy()
+        
+        HTTPClient.shared = client
         
         sut.load()
         
