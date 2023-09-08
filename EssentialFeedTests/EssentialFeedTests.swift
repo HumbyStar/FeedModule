@@ -11,6 +11,9 @@ import XCTest
 class RemoteFeedLoader {
     func load() {
         HTTPClient.shared.getURL(url: URL(string: "https://a-URL.com.br")!)
+        
+        //Responsabilidade do RemoteFeedLoader chamar o método getURL da HTTPClient
+        //Responsabilidade do RemoteFeedLoader localizar o HTTPClient na memória, isso os torna acoplados.
     }
 }           // Precisa ter alguma URL em algum momento
 
