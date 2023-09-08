@@ -12,7 +12,7 @@ class RemoteFeedLoader {
     let client: HTTPClient
     let url: URL
     
-    init(client: HTTPClient, url: URL = (URL(string:  "https://a-URL.com.br")!)) {
+    init(client: HTTPClient, url: URL) {
         self.client = client
         self.url = url
     }
@@ -40,23 +40,23 @@ class HTTPClientSpy: HTTPClient {
 final class RemoteFeedTests: XCTestCase {
 
     func tests_init_withoutURLRequest() {
-        //let sut = RemoteFeedLoader() --------> Mas não faz sentido eu possui-lo porque eu não o uso
         
-        let client = HTTPClientSpy()
+        let (_,client) = makeSUT()
         XCTAssertNil(client.requestURL)
     }
     
     func tests_init_withRequestURL() {
         let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
-        let client = HTTPClientSpy()
-        let sut = RemoteFeedLoader(client: client, url: url)
-        
-        
-//        let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
-        
+        let (sut, client) = makeSUT(url: url)
         sut.load()
         
         XCTAssertEqual(client.requestURL, url)
+    }
+    
+    func makeSUT(url: URL = URL(string:  "https://a-URL.com.br")!) -> (RemoteFeedLoader,HTTPClientSpy) {
+        let client = HTTPClientSpy()
+        let sut = RemoteFeedLoader(client: client, url: url)
+        return (sut, client)
     }
 
 }
