@@ -38,6 +38,17 @@ final class RemoteFeedTests: XCTestCase {
         XCTAssertEqual(capturedErrors, [.connectivity])
     }
     
+    func test_load_deliversErrorOnNon200HTTPResponse() {
+        let (sut, client) = makeSUT()
+        
+        var capturedErrors = [RemoteFeedLoader.Error]()
+        sut.load {  capturedErrors.append($0) }
+        
+        client.complete(withStatusCode: 400)
+        
+        XCTAssertEqual(capturedErrors, [.invalidData])
+    }
+    
     func test_load_requestWithURLTwice() {
         let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
         let (sut, client) = makeSUT(url: url)
@@ -55,19 +66,25 @@ final class RemoteFeedTests: XCTestCase {
     }
     
     class HTTPClientSpy: HTTPClient {
-        private var messages = [(url: URL, completions: (Error) -> Void)]()
+        private var messages = [(url: URL, completions: (Error?, HTTPURLResponse?) -> Void)]()
         // Combinamos a propriedade messages da spy em um unico tipo simples através de uma tupla
         
         var requestURLs: [URL] {
             messages.map { $0.url }
         }
         
-        func get(url: URL, completion: @escaping (Error) -> Void) {
+        func get(url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void) {
             messages.append((url: url,completions: completion))
         }
         
         func complete(with error: Error, at index: Int = 0) {
-            messages[index].completions(error)
+            messages[index].completions(error, nil)
+        }
+        
+        func complete(withStatusCode code: Int, at index: Int = 0) {
+            let response = HTTPURLResponse(url: requestURLs[index], statusCode: code, httpVersion: nil, headerFields: nil)
+            
+            messages[index].completions(nil, response)
         }
     }
 }
