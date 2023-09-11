@@ -8,17 +8,17 @@
 import XCTest
 import EssentialFeed
 
-@testable import EssentialFeed
+import EssentialFeed
 
 final class RemoteFeedTests: XCTestCase {
     
-    func tests_init_withoutURLRequest() {
+    func test_init_doesNotRequestWithURL() {
         
         let (_,client) = makeSUT()
         XCTAssertNil(client.requestURL)
     }
     
-    func tests_init_withRequestURL() {
+    func test_load_requestWithURL() {
         let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
         let (sut, client) = makeSUT(url: url)
         sut.load()
