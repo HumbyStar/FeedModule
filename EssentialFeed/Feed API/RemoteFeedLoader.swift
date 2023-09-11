@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol HTTPClient {
-    func getURL(url: URL, completion: @escaping (Error) -> Void)
+    func get(url: URL, completion: @escaping (Error) -> Void)
     
     // Não queremos passar RemoteFeedLoader.Error, porque esse erro está no escopo da classe HTTPClient é um erro que vem da próprio requisição
     
@@ -29,7 +29,7 @@ public final class RemoteFeedLoader {
     }
     
     public func load(completion: @escaping (Error) -> Void = { _ in }) {
-        client.getURL(url: url) { error in
+        client.get(url: url) { error in
             completion(.connectivity)
         }
         

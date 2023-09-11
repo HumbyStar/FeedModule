@@ -55,19 +55,19 @@ final class RemoteFeedTests: XCTestCase {
     }
     
     class HTTPClientSpy: HTTPClient {
-    // RequestURL é apenas para fim de testes (produção)
-        var requestURLs = [URL]()
-        var completions = [(Error) -> Void]()
+        private var messages = [(url: URL, completions: (Error) -> Void)]()
+        // Combinamos a propriedade messages da spy em um unico tipo simples através de uma tupla
         
-        func getURL(url: URL, completion: @escaping (Error) -> Void) {
-            completions.append(completion)
-                // Se tivermos um erro, esse erro recebe o que foi mapeado pela RemoteFeedLoader
-      
-            requestURLs.append(url)
+        var requestURLs: [URL] {
+            messages.map { $0.url }
+        }
+        
+        func get(url: URL, completion: @escaping (Error) -> Void) {
+            messages.append((url: url,completions: completion))
         }
         
         func complete(with error: Error, at index: Int = 0) {
-            self.completions[index](error)
+            messages[index].completions(error)
         }
     }
 }
