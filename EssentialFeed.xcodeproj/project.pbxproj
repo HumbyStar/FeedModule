@@ -13,7 +13,6 @@
 		0C7AA1FA2AA8B6D4006CF8E7 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C7AA1EC2AA8B6D4006CF8E7 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C7AA2042AA8B6EA006CF8E7 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AA2032AA8B6EA006CF8E7 /* FeedItem.swift */; };
 		0C7AA2062AA8B916006CF8E7 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AA2052AA8B916006CF8E7 /* FeedLoader.swift */; };
-		0C7AA2092AABA78C006CF8E7 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AA2082AABA78C006CF8E7 /* RemoteFeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +33,6 @@
 		0C7AA1F82AA8B6D4006CF8E7 /* EssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedTests.swift; sourceTree = "<group>"; };
 		0C7AA2032AA8B6EA006CF8E7 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		0C7AA2052AA8B916006CF8E7 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
-		0C7AA2082AABA78C006CF8E7 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +94,6 @@
 		0C7AA2072AABA76D006CF8E7 /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
-				0C7AA2082AABA78C006CF8E7 /* RemoteFeedLoader.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -220,7 +217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C7AA2062AA8B916006CF8E7 /* FeedLoader.swift in Sources */,
-				0C7AA2092AABA78C006CF8E7 /* RemoteFeedLoader.swift in Sources */,
 				0C7AA2042AA8B6EA006CF8E7 /* FeedItem.swift in Sources */,
 				0C7AA1EE2AA8B6D4006CF8E7 /* EssentialFeed.docc in Sources */,
 			);

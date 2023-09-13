@@ -8,7 +8,22 @@
 import XCTest
 import EssentialFeed
 
-import EssentialFeed
+public protocol HTTPClient {
+    func get(url: URL)
+}
+
+public final class RemoteFeedLoader {
+    private let client: HTTPClient
+    private let url: URL
+    
+    public init(client: HTTPClient, url: URL) {
+        self.client = client
+        self.url = url
+    }
+    
+    public func load() {}
+}
+
 
 final class RemoteFeedTests: XCTestCase {
     
@@ -21,40 +36,17 @@ final class RemoteFeedTests: XCTestCase {
     func test_load_requestWithURL() {
         let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
         let (sut, client) = makeSUT(url: url)
-        sut.load { _ in }
+        sut.load()
         
         XCTAssertEqual(client.requestURLs, [url])
-    }
-    
-    func test_load_deliversErrorOnClientError() {
-        let (sut, client) = makeSUT()
-        
-        var capturedErrors = [RemoteFeedLoader.Error]()
-        sut.load {  capturedErrors.append($0) }
-        
-        let clientError = NSError(domain: "Test", code: 0)
-        client.complete(with: clientError)
-        
-        XCTAssertEqual(capturedErrors, [.connectivity])
-    }
-    
-    func test_load_deliversErrorOnNon200HTTPResponse() {
-        let (sut, client) = makeSUT()
-        
-        var capturedErrors = [RemoteFeedLoader.Error]()
-        sut.load {  capturedErrors.append($0) }
-        
-        client.complete(withStatusCode: 400)
-        
-        XCTAssertEqual(capturedErrors, [.invalidData])
     }
     
     func test_load_requestWithURLTwice() {
         let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
         let (sut, client) = makeSUT(url: url)
         
-        sut.load { _ in }
-        sut.load { _ in }
+        sut.load()
+        sut.load()
         
         XCTAssertEqual(client.requestURLs, [url,url])
     }
@@ -66,25 +58,10 @@ final class RemoteFeedTests: XCTestCase {
     }
     
     class HTTPClientSpy: HTTPClient {
-        private var messages = [(url: URL, completions: (Error?, HTTPURLResponse?) -> Void)]()
-        // Combinamos a propriedade messages da spy em um unico tipo simples através de uma tupla
+        var requestURLs = [URL]()
         
-        var requestURLs: [URL] {
-            messages.map { $0.url }
-        }
-        
-        func get(url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void) {
-            messages.append((url: url,completions: completion))
-        }
-        
-        func complete(with error: Error, at index: Int = 0) {
-            messages[index].completions(error, nil)
-        }
-        
-        func complete(withStatusCode code: Int, at index: Int = 0) {
-            let response = HTTPURLResponse(url: requestURLs[index], statusCode: code, httpVersion: nil, headerFields: nil)
-            
-            messages[index].completions(nil, response)
+        func get(url: URL) {
+            requestURLs.append(url)
         }
     }
 }
