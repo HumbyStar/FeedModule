@@ -82,15 +82,13 @@ final class RemoteFeedTests: XCTestCase {
         
         let samples = [199, 201, 300, 400, 500]
         
-        samples.forEach { code in
+        samples.enumerated().forEach { index, code in
             
             var capturedErrors = [RemoteFeedLoader.Error]()
             sut.load { capturedErrors.append($0) }
             
-            client.complete(withErrorStatus: code)
+            client.complete(withErrorStatus: code, at: index)
             XCTAssertEqual(capturedErrors, [.invalidData])
-            
-            capturedErrors = []
         }
     }
     
