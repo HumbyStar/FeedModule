@@ -32,7 +32,7 @@ public final class RemoteFeedLoader {
     }
     
     public func load(completion: @escaping (Error) -> Void) {
-        client.get(url: url) { result in                       //Temos que resolver o de fora
+        client.get(url: url) { result in                                //Temos que resolver o de fora
             switch result {
             case .success:
                 completion(.invalidData)
