@@ -9,7 +9,7 @@ import XCTest
 import EssentialFeed
 
 public enum HTTPClientResult {
-    case success(HTTPURLResponse)
+    case success(Data, HTTPURLResponse)
     case failure(Error)
 }
 
@@ -98,6 +98,19 @@ final class RemoteFeedTests: XCTestCase {
         }
     }
     
+    func test_load_deliversErrorOn200HTTPInvalidData() {
+        let (sut, client) = makeSUT()
+        
+        var capturedErrors = [RemoteFeedLoader.Error]()
+        sut.load { capturedErrors.append($0) }
+        
+        let invalidJson = Data(_ : "Invalid Json".utf8)
+        
+        client.complete(withErrorStatus: 200, data: invalidJson)
+        
+        XCTAssertEqual(capturedErrors, [.invalidData])
+    }
+    
     func makeSUT(url: URL = URL(string:  "https://example-URL.com.br")!) -> (RemoteFeedLoader,HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(client: client, url: url)
@@ -119,12 +132,12 @@ final class RemoteFeedTests: XCTestCase {
             messages[index].completions(.failure(error))
         }
         
-        func complete(withErrorStatus status: Int, at index: Int = 0) {
+        func complete(withErrorStatus status: Int, data: Data = Data(), at index: Int = 0) {
            let response = HTTPURLResponse(url: requestURLs[index],
                                           statusCode: status,
                                           httpVersion: nil,
                                           headerFields: nil)!
-            messages[index].completions(.success(response))
+            messages[index].completions(.success(data, response))
         }
     }
 }
