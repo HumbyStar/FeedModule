@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "61B52F8D-FA5D-4659-8441-3C8A58E7EA7F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EssentialFeedTests/EssentialFeedTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "test_load_deliversErrorOnClientError()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "61B52F8D-FA5D-4659-8441-3C8A58E7EA7F - fa10fdec28994f40"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EssentialFeedTests.RemoteFeedTests.test_load_deliversErrorOnClientError() -&gt; ()"
-                  moduleName = "EssentialFeedTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/humbertorodrigues/Desktop/Essential%20Developer%20Course/EssentialFeed/FeedModule/EssentialFeedTests/EssentialFeedTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "288">
-               </Location>
-               <Location
-                  uuid = "61B52F8D-FA5D-4659-8441-3C8A58E7EA7F - 91e617841ff5030b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (EssentialFeedTests.RemoteFeedLoader.Error) -&gt; () in EssentialFeedTests.RemoteFeedTests.test_load_deliversErrorOnClientError() -&gt; ()"
-                  moduleName = "EssentialFeedTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/humbertorodrigues/Desktop/Essential%20Developer%20Course/EssentialFeed/FeedModule/EssentialFeedTests/EssentialFeedTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5520E3AC-10FE-4948-9B5E-8105CEFDAF03"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -119,49 +71,129 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3773E547-A91D-46AA-9344-E0A350C883D1"
+            uuid = "EF86119A-9877-447E-B72C-A406ABAD17FA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "test_load_deliversErrorOnNon200HTTPResponse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3B450D2-08EB-411C-83F9-73D80CBDF61B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialFeedTests/EssentialFeedTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "complete(withErrorStatus:at:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDD87FF2-FAA8-441C-9B4B-880DC2472DDA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialFeedTests/EssentialFeedTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "load(completion:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3773E547-A91D-46AA-9344-E0A350C883D1 - 13564b745b1613cb"
+                  uuid = "BDD87FF2-FAA8-441C-9B4B-880DC2472DDA - 4a23598ecd9d5cbf"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "EssentialFeedTests.RemoteFeedTests.test_load_deliversErrorOnNon200HTTPResponse() -&gt; ()"
+                  symbolName = "EssentialFeedTests.RemoteFeedLoader.load(completion: (EssentialFeedTests.RemoteFeedLoader.Error) -&gt; ()) -&gt; ()"
                   moduleName = "EssentialFeedTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/humbertorodrigues/Desktop/Essential%20Developer%20Course/EssentialFeed/FeedModule/EssentialFeedTests/EssentialFeedTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "276">
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "136">
                </Location>
                <Location
-                  uuid = "3773E547-A91D-46AA-9344-E0A350C883D1 - 2ff22595307f9674"
+                  uuid = "BDD87FF2-FAA8-441C-9B4B-880DC2472DDA - 2bde0cde21f34363"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (EssentialFeedTests.RemoteFeedLoader.Error) -&gt; () in EssentialFeedTests.RemoteFeedTests.test_load_deliversErrorOnNon200HTTPResponse() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;__C.NSHTTPURLResponse&gt;) -&gt; () in EssentialFeedTests.RemoteFeedLoader.load(completion: (EssentialFeedTests.RemoteFeedLoader.Error) -&gt; ()) -&gt; ()"
                   moduleName = "EssentialFeedTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/humbertorodrigues/Desktop/Essential%20Developer%20Course/EssentialFeed/FeedModule/EssentialFeedTests/EssentialFeedTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "40">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "60">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83739573-D56C-4491-BE05-FD879949DC95"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialFeedTests/EssentialFeedTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "test_load_deliversErrorOnNon200HTTPResponse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CDFCC198-3E9F-4C9B-A480-FA6C9C327FD2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialFeedTests/EssentialFeedTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "get(url:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EF784BE-1AF8-4943-8567-3D8C5ED2E5AC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialFeedTests/EssentialFeedTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "HTTPClient"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

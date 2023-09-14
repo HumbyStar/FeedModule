@@ -27,9 +27,9 @@ public final class RemoteFeedLoader {
     }
     
     public func load(completion: @escaping (Error) -> Void) {
-        client.get(url: url) { error, response in
+        client.get(url: url) { error, response in                       //Temos que resolver o de fora
             if response != nil {
-                completion(.invalidData)
+                completion(.invalidData)                                // Para o de dentro ser resolvido
             } else {
                 completion(.connectivity)
             }
@@ -66,35 +66,35 @@ final class RemoteFeedTests: XCTestCase {
 
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
-    
+
         var capturedErrors = [RemoteFeedLoader.Error]()
         sut.load { capturedErrors.append($0) }
-        
+
         let clientError = NSError(domain: "test", code: 0)
-        
+
         client.complete(with: clientError)
-        
+
         XCTAssertEqual(capturedErrors, [.connectivity])
     }
     
     func test_load_deliversErrorOnNon200HTTPResponse() {
         let (sut, client) = makeSUT()
         
-        var capturedErrors = [RemoteFeedLoader.Error]()
+        let samples = [199, 201, 300, 400, 500]
         
-         sut.load { capturedErrors.append($0) }
-        
-        [199, 201, 300, 400, 500].forEach { code in
+        samples.forEach { code in
+            
+            var capturedErrors = [RemoteFeedLoader.Error]()
+            sut.load { capturedErrors.append($0) }
             
             client.complete(withErrorStatus: code)
-            print(capturedErrors.count)
             XCTAssertEqual(capturedErrors, [.invalidData])
             
             capturedErrors = []
         }
     }
     
-    func makeSUT(url: URL = URL(string:  "https://a-URL.com.br")!) -> (RemoteFeedLoader,HTTPClientSpy) {
+    func makeSUT(url: URL = URL(string:  "https://example-URL.com.br")!) -> (RemoteFeedLoader,HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(client: client, url: url)
         return (sut, client)
