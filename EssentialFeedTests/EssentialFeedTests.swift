@@ -8,8 +8,13 @@
 import XCTest
 import EssentialFeed
 
+public enum HTTPClientResult {
+    case success(HTTPURLResponse)
+    case failure(Error)
+}
+
 public protocol HTTPClient {
-    func get(url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void)
+    func get(url: URL, completion: @escaping (HTTPClientResult) -> Void)
 }
 
 public final class RemoteFeedLoader {
@@ -27,10 +32,11 @@ public final class RemoteFeedLoader {
     }
     
     public func load(completion: @escaping (Error) -> Void) {
-        client.get(url: url) { error, response in                       //Temos que resolver o de fora
-            if response != nil {
-                completion(.invalidData)                                // Para o de dentro ser resolvido
-            } else {
+        client.get(url: url) { result in                       //Temos que resolver o de fora
+            switch result {
+            case .success:
+                completion(.invalidData)
+            case .failure:
                 completion(.connectivity)
             }
         }
@@ -99,26 +105,26 @@ final class RemoteFeedTests: XCTestCase {
     }
     
     class HTTPClientSpy: HTTPClient {
-        var messages = [(url: URL, completions: (Error?, HTTPURLResponse?) -> Void)]()
+        var messages = [(url: URL, completions: (HTTPClientResult) -> Void)]()
         
         var requestURLs: [URL] {
             return messages.map({ $0.url })
         }
         
-        func get(url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void) {
+        func get(url: URL, completion: @escaping (HTTPClientResult) -> Void) {
             messages.append((url, completion))
         }
         
         func complete(with error: Error, at index: Int = 0) {
-            messages[index].completions(error, nil)
+            messages[index].completions(.failure(error))
         }
         
         func complete(withErrorStatus status: Int, at index: Int = 0) {
            let response = HTTPURLResponse(url: requestURLs[index],
                                           statusCode: status,
                                           httpVersion: nil,
-                                          headerFields: nil)
-            messages[index].completions(nil, response)
+                                          headerFields: nil)!
+            messages[index].completions(.success(response))
         }
     }
 }
