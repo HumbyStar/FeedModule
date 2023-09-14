@@ -25,7 +25,7 @@ public final class RemoteFeedLoader {
         self.url = url
     }
     
-    public func load(completion: @escaping (Error) -> Void = {_ in}) {
+    public func load(completion: @escaping (Error) -> Void) {
         client.get(url: url) { error in
             completion(.connectivity)
         }
@@ -35,29 +35,29 @@ public final class RemoteFeedLoader {
 
 final class RemoteFeedTests: XCTestCase {
     
-//    func test_init_doesNotRequestWithURL() {
-//
-//        let (_,client) = makeSUT()
-//        XCTAssertTrue(client.requestURLs.isEmpty)
-//    }
-//
-//    func test_load_requestWithURL() {
-//        let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
-//        let (sut, client) = makeSUT(url: url)
-//        sut.load()
-//
-//        XCTAssertEqual(client.requestURLs, [url])
-//    }
-//
-//    func test_load_requestWithURLTwice() {
-//        let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
-//        let (sut, client) = makeSUT(url: url)
-//
-//        sut.load()
-//        sut.load()
-//
-//        XCTAssertEqual(client.requestURLs, [url,url])
-//    }
+    func test_init_doesNotRequestWithURL() {
+
+        let (_,client) = makeSUT()
+        XCTAssertTrue(client.requestURLs.isEmpty)
+    }
+
+    func test_load_requestWithURL() {
+        let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
+        let (sut, client) = makeSUT(url: url)
+        sut.load {_ in}
+
+        XCTAssertEqual(client.requestURLs, [url])
+    }
+
+    func test_load_requestWithURLTwice() {
+        let url = URL(string: "https://possibilidadesDeOutroLink.com.br")!
+        let (sut, client) = makeSUT(url: url)
+
+        sut.load {_ in}
+        sut.load {_ in}
+
+        XCTAssertEqual(client.requestURLs, [url,url])
+    }
 
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
