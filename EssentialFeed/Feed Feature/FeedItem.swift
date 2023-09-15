@@ -12,12 +12,12 @@ public class FeedItem: Equatable {
         return false
     }
     
-    let id: UUID
-    let description: String?
-    let location: String?
-    let image: String
+    public let id: UUID
+    public let description: String?
+    public let location: String?
+    public let image: String
     
-    init(id: UUID, description: String?, location: String?, image: String) {
+    public init(id: UUID, description: String?, location: String?, image: String) {
         self.id = id
         self.description = description
         self.location = location
