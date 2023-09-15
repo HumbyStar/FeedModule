@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class FeedItem: Equatable {
+public class FeedItem: Equatable, Decodable {
     public static func == (lhs: FeedItem, rhs: FeedItem) -> Bool {
         return false
     }
@@ -22,5 +22,14 @@ public class FeedItem: Equatable {
         self.description = description
         self.location = location
         self.imageURL = imageURL
+    }
+}
+
+extension FeedItem {
+    public enum CodingKeys: String, CodingKey {
+        case id
+        case description
+        case location
+        case imageURL = "image"
     }
 }

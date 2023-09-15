@@ -82,7 +82,7 @@ final class RemoteFeedTests: XCTestCase {
                              imageURL: URL(string: "https//test-url.com.br")!)
         
         let item1Json: [String: Any] = [
-            "id": item1.id.uuid,
+            "id": item1.id.uuidString,
             "image": item1.imageURL.absoluteString
         ]
         
@@ -98,12 +98,17 @@ final class RemoteFeedTests: XCTestCase {
             "image": item2.imageURL.absoluteString
         ]
         
-        let items = [
+        let jsonItems = [
             "items": [
                 item1Json,
                 item2Json
             ]
         ]
+        
+        expect(sut, result: .success([item1, item2])) {
+            let json = try! JSONSerialization.data(withJSONObject: jsonItems)
+            client.complete(withStatusCode: 200, data: json)
+        }
     }
     
     //Helpers
