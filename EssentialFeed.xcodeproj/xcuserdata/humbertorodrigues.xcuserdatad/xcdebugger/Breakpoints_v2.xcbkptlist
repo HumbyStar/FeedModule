@@ -14,8 +14,8 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "RemoteFeedTests"
             landmarkType = "3">
             <Locations>
@@ -62,56 +62,10 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BDD87FF2-FAA8-441C-9B4B-880DC2472DDA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EssentialFeedTests/EssentialFeedTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "HTTPClientResult"
-            landmarkType = "13">
-            <Locations>
-               <Location
-                  uuid = "BDD87FF2-FAA8-441C-9B4B-880DC2472DDA - 4a23598ecd9d5cbf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EssentialFeedTests.RemoteFeedLoader.load(completion: (EssentialFeedTests.RemoteFeedLoader.Error) -&gt; ()) -&gt; ()"
-                  moduleName = "EssentialFeedTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/humbertorodrigues/Desktop/Essential%20Developer%20Course/EssentialFeed/FeedModule/EssentialFeedTests/EssentialFeedTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "136">
-               </Location>
-               <Location
-                  uuid = "BDD87FF2-FAA8-441C-9B4B-880DC2472DDA - 2bde0cde21f34363"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;__C.NSHTTPURLResponse&gt;) -&gt; () in EssentialFeedTests.RemoteFeedLoader.load(completion: (EssentialFeedTests.RemoteFeedLoader.Error) -&gt; ()) -&gt; ()"
-                  moduleName = "EssentialFeedTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/humbertorodrigues/Desktop/Essential%20Developer%20Course/EssentialFeed/FeedModule/EssentialFeedTests/EssentialFeedTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "complete(withStatusCode:data:at:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -124,8 +78,8 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "test_init_doesNotRequestWithURL()"
             landmarkType = "7">
          </BreakpointContent>
@@ -140,8 +94,10 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191">
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "HTTPClientSpy"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -156,7 +112,7 @@
             endingColumnNumber = "13"
             startingLineNumber = "164"
             endingLineNumber = "164"
-            landmarkName = "makeSUT(url:)"
+            landmarkName = "expect(_:result:when:file:line:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

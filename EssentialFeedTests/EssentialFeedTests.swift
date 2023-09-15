@@ -8,51 +8,6 @@
 import XCTest
 import EssentialFeed
 
-public enum HTTPClientResult {
-    case success(Data, HTTPURLResponse)
-    case failure(Error)
-}
-
-public protocol HTTPClient {
-    func get(url: URL, completion: @escaping (HTTPClientResult) -> Void)
-}
-
-public final class RemoteFeedLoader {
-    private let client: HTTPClient
-    private let url: URL
-    
-    public enum Error {
-        case connectivity
-        case invalidData
-    }
-    
-    public enum Result: Equatable {
-        case success([FeedItem])
-        case failure(Error)
-    }
-    
-    public init(client: HTTPClient, url: URL) {
-        self.client = client
-        self.url = url
-    }
-    
-    public func load(completion: @escaping (Result) -> Void) {
-        client.get(url: url) { result in                                //Temos que resolver o de fora
-            switch result {
-            case let .success(data, _):
-                if let _ = try? JSONSerialization.jsonObject(with: data) {
-                    completion(.success([]))
-                } else {
-                    completion(.failure(.invalidData))
-                }
-            case .failure:
-                completion(.failure(.connectivity))
-            }
-        }
-    }
-}
-
-
 final class RemoteFeedTests: XCTestCase {
     
     func test_init_doesNotRequestWithURL() {
@@ -137,13 +92,13 @@ final class RemoteFeedTests: XCTestCase {
                              imageURL: URL(string: "https://testing-another-url.com.br")!)
         
         let item2Json: [String: Any] = [
-            "id": item1.id.uuid,
-            "description": item1.description ?? "",
-            "location": item1.location ?? "",
-            "image": item1.imageURL.absoluteString
+            "id": item2.id.uuidString,
+            "description": item2.description ?? "",
+            "location": item2.location ?? "",
+            "image": item2.imageURL.absoluteString
         ]
         
-        let items: [String: Any] = [
+        let items = [
             "items": [
                 item1Json,
                 item2Json
