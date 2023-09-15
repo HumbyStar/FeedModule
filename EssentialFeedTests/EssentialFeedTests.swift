@@ -26,18 +26,23 @@ public final class RemoteFeedLoader {
         case invalidData
     }
     
+    public enum Result: Equatable {
+        case success([FeedItem])
+        case failure(Error)
+    }
+    
     public init(client: HTTPClient, url: URL) {
         self.client = client
         self.url = url
     }
     
-    public func load(completion: @escaping (Error) -> Void) {
+    public func load(completion: @escaping (Result) -> Void) {
         client.get(url: url) { result in                                //Temos que resolver o de fora
             switch result {
             case .success:
-                completion(.invalidData)
+                completion(.failure(.invalidData))
             case .failure:
-                completion(.connectivity)
+                completion(.failure(.connectivity))
             }
         }
     }
@@ -108,11 +113,11 @@ final class RemoteFeedTests: XCTestCase {
         return (sut, client)
     }
     
-    func expect(_ sut: RemoteFeedLoader, error: RemoteFeedLoader.Error, act: () -> Void) {
-        var capturedErrors = [RemoteFeedLoader.Error]()
-        sut.load { capturedErrors.append($0) }
+    func expect(_ sut: RemoteFeedLoader, error: RemoteFeedLoader.Error, act: () -> Void,  file: StaticString = #filePath, line: UInt = #line) {
+        var capturedResults = [RemoteFeedLoader.Result]()
+        sut.load { capturedResults.append($0) }
         act()
-        XCTAssertEqual(capturedErrors, [error])
+        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
     }
     
     class HTTPClientSpy: HTTPClient {

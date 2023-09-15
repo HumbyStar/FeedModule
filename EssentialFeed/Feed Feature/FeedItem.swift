@@ -7,7 +7,11 @@
 
 import Foundation
 
-class FeedItem {
+public class FeedItem: Equatable {
+    public static func == (lhs: FeedItem, rhs: FeedItem) -> Bool {
+        return false
+    }
+    
     let id: UUID
     let description: String?
     let location: String?
