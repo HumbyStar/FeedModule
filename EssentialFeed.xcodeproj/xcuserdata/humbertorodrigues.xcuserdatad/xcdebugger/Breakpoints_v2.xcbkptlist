@@ -14,8 +14,8 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "test_load_deliversErrorOn200HTTPInvalidData()"
             landmarkType = "7">
             <Locations>
@@ -62,8 +62,8 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148">
+            startingLineNumber = "154"
+            endingLineNumber = "154">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -76,10 +76,10 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "test_init_doesNotRequestWithURL()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "BDD87FF2-FAA8-441C-9B4B-880DC2472DDA - 4a23598ecd9d5cbf"
@@ -124,10 +124,10 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "RemoteFeedTests"
-            landmarkType = "3">
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "test_load_deliversErrorOn200HTTPInvalidData()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -140,8 +140,8 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150">
+            startingLineNumber = "156"
+            endingLineNumber = "156">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -169,10 +169,10 @@
             continueAfterRunningActions = "No"
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "13"
-            endingColumnNumber = "27"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "expect(_:error:act:file:line:)"
+            endingColumnNumber = "13"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "complete(with:at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -39,8 +39,12 @@ public final class RemoteFeedLoader {
     public func load(completion: @escaping (Result) -> Void) {
         client.get(url: url) { result in                                //Temos que resolver o de fora
             switch result {
-            case .success:
-                completion(.failure(.invalidData))
+            case let .success(data, _):
+                if let _ = try? JSONSerialization.jsonObject(with: data) {
+                    completion(.success([]))
+                } else {
+                    completion(.failure(.invalidData))
+                }
             case .failure:
                 completion(.failure(.connectivity))
             }
@@ -91,7 +95,7 @@ final class RemoteFeedTests: XCTestCase {
         
         samples.enumerated().forEach { index, code in
             expect(sut, error: .invalidData, act: {
-                client.complete(withErrorStatus: code, at: index)
+                client.complete(withStatusCode: code, at: index)
             })
         }
     }
@@ -101,8 +105,21 @@ final class RemoteFeedTests: XCTestCase {
         
         expect(sut, error: .invalidData, act: {
             let invalidJson = Data(_ : "Invalid Json".utf8)
-            client.complete(withErrorStatus: 200, data: invalidJson)
+            client.complete(withStatusCode: 200, data: invalidJson)
         })
+    }
+    
+    func test_load_delivers200HTTPEmptyData() {
+        let (sut, client) = makeSUT()
+        
+        var capturedResult = [RemoteFeedLoader.Result]()
+        sut.load { capturedResult.append($0) }
+        
+        let emptyJson = Data(_ : "{\"items\": []}".utf8)
+        
+        client.complete(withStatusCode: 200, data: emptyJson)
+        
+        XCTAssertEqual(capturedResult, [.success([])])
     }
     
     //Helpers
@@ -135,7 +152,7 @@ final class RemoteFeedTests: XCTestCase {
             messages[index].completions(.failure(error))
         }
         
-        func complete(withErrorStatus status: Int, data: Data = Data(), at index: Int = 0) {
+        func complete(withStatusCode status: Int, data: Data = Data(), at index: Int = 0) {
            let response = HTTPURLResponse(url: requestURLs[index],
                                           statusCode: status,
                                           httpVersion: nil,
