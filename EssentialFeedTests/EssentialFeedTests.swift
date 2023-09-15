@@ -118,6 +118,39 @@ final class RemoteFeedTests: XCTestCase {
         }
     }
     
+    func test_load_delivers200HTTPSuccessJson() {
+        let (sut, client) = makeSUT()
+        
+        let item1 = FeedItem(id: UUID(),
+                             description: nil,
+                             location: nil,
+                             imageURL: URL(string: "https//test-url.com.br")!)
+        
+        let item1Json: [String: Any] = [
+            "id": item1.id.uuid,
+            "image": item1.imageURL.absoluteString
+        ]
+        
+        let item2 = FeedItem(id: UUID(),
+                             description: "a description",
+                             location: "a location",
+                             imageURL: URL(string: "https://testing-another-url.com.br")!)
+        
+        let item2Json: [String: Any] = [
+            "id": item1.id.uuid,
+            "description": item1.description ?? "",
+            "location": item1.location ?? "",
+            "image": item1.imageURL.absoluteString
+        ]
+        
+        let items: [String: Any] = [
+            "items": [
+                item1Json,
+                item2Json
+            ]
+        ]
+    }
+    
     //Helpers
     
     func makeSUT(url: URL = URL(string:  "https://example-URL.com.br")!) -> (RemoteFeedLoader,HTTPClientSpy) {
