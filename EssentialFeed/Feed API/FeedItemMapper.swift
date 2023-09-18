@@ -25,12 +25,14 @@ internal struct FeedItemsMapper {
         }
     }
 
-    internal static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [FeedItem] {
-        guard response.statusCode == ok_url else {
-            throw RemoteFeedLoader.Error.invalidData
+    internal static func map(data: Data, from response: HTTPURLResponse) -> RemoteFeedLoader.Result {
+        guard response.statusCode == 200,
+              let root = try? JSONDecoder().decode(Root.self, from: data) else {
+            return .failure(.invalidData)
         }
-        let json = try JSONDecoder().decode(Root.self, from: data).items.map({ $0.item })
-        return json
+        
+        let feedItems = root.items.map({ $0.item })
+        return .success(feedItems)
     }
 }
 
