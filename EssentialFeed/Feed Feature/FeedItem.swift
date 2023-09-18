@@ -26,11 +26,3 @@ public class FeedItem: Equatable, Decodable {
     }
 }
 
-extension FeedItem {
-    public enum CodingKeys: String, CodingKey {
-        case id
-        case description
-        case location
-        case imageURL = "image"
-    }
-}
