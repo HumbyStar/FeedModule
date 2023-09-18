@@ -9,7 +9,11 @@ import Foundation
 
 public class FeedItem: Equatable, Decodable {
     public static func == (lhs: FeedItem, rhs: FeedItem) -> Bool {
-        let isEqual = lhs.id == rhs.id && lhs.description == rhs.description && lhs.location == rhs.location && lhs.imageURL == rhs.imageURL
+        let isEqual = lhs.id == rhs.id &&
+                      lhs.description == rhs.description &&
+                      lhs.location == rhs.location &&
+                      lhs.imageURL == rhs.imageURL
+        
         return isEqual
     }
     
