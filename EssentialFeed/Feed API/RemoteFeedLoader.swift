@@ -27,7 +27,8 @@ public final class RemoteFeedLoader {
     }
     
     public func load(completion: @escaping (Result) -> Void) {
-        client.get(url: url) { result in
+        client.get(url: url) { [weak self] result in
+            guard self != nil  else {return}
             switch result {
             case let .success(data, response):
                 completion(FeedItemsMapper.map(data: data, from: response))
@@ -36,18 +37,6 @@ public final class RemoteFeedLoader {
             }
         }
     }
-    
-    /* Se voltarmos 1 ou 2 commits, vamos ver que aqui tinha um método map, e até poderiamos usa-lo dizendo que
-     
-     client.get(url: url) { [weak self] result in
-        guard let self = self else { return }
-     
-     e assim chamariamos o self.map no completion de .success
-     
-     Porém iriamos ser refém da RemoteFeedLoader nunca estar dealocada, diferente do método com static que se encontra na FeedItemMapper. Por ela ser static por mais que RemoteFeedLoader esteja dealocada mesmo assim o método ira funcionar pois o método static não depende de algo instanciado.
-     
-     Isso é possivel com método static porque FeedItemMapper não conhece a implementação do client.
-     */
 }
 
 

@@ -62,10 +62,8 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "complete(withStatusCode:data:at:)"
-            landmarkType = "7">
+            startingLineNumber = "174"
+            endingLineNumber = "174">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,10 +92,8 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "complete(withStatusCode:data:at:)"
-            landmarkType = "7">
+            startingLineNumber = "176"
+            endingLineNumber = "176">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -110,10 +106,10 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "13"
             endingColumnNumber = "13"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "expect(_:result:when:file:line:)"
-            landmarkType = "7">
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "top"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
