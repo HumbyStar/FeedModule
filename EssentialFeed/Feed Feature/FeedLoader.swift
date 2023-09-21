@@ -13,6 +13,6 @@ public enum LoadFeedItems {
 }
 
 protocol FeedLoader {
-    func load(completion: (LoadFeedItems) -> Void)
+    func load(completion: @escaping (LoadFeedItems) -> Void)
 }
  
