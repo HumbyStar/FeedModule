@@ -62,8 +62,8 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "complete(withStatusCode:data:at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "complete(withStatusCode:data:at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,9 +110,9 @@
             filePath = "EssentialFeedTests/EssentialFeedTests.swift"
             startingColumnNumber = "13"
             endingColumnNumber = "13"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "complete(withStatusCode:data:at:)"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "complete(with:at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

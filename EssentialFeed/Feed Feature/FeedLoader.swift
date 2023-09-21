@@ -12,8 +12,6 @@ public enum LoadFeedItems<Error: Swift.Error> {
     case failure(Error)
 }
 
-extension LoadFeedItems: Equatable where Error: Equatable {}
-
 protocol FeedLoader {
     func load(completion: (LoadFeedItems<Error>) -> Void)
 }
